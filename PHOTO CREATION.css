@@ -1,0 +1,106 @@
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+body {
+    font-family: Raleway, sans-serif;
+    background-color: rgb(231, 221, 221);
+}
+
+h1 {
+    text-align: center;
+    top: 20px;
+    color: #fff;
+    padding-top: 50px;
+}
+
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-container:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    z-index: 10000;
+}
+
+.navbar li {
+    margin: 0 70px; /* Adjusted margin */
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: rgb(248, 248, 248);
+    font-size: 16px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown li {
+    padding: 10px;
+}
+
+.dropdown li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+}
+
+.navbar li:hover .dropdown {
+    display: block;
+}
+
+
+.footer {
+    background-color: #333; /* Add back the background color */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .footer p {
+      margin-top: 10px;
+  }
+  
+  .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .footer-content p {
+      font-size: 18px;
+  }
+  
+  .footer-content a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  
+  .footer-content a:hover {
+      color: #ffd700; /* Change to the desired hover color */
+  }

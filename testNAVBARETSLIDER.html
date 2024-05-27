@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Photo port folio.css">
+    <link rel="stylesheet" href="styleeF.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        html {
+    margin: 0;
+    font-family: 'Lora', serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #121212;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: #121212;
+}
+
+        .background-container {
+            background: black;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 101%; /* Adjust the height to cover only the top half */
+            z-index: -1;
+        }
+
+        .second-background {
+            background-color: rgb(255, 255, 255);
+            position: fixed;
+            top: 50%; /* Position it below the slider content */
+            left: 0;
+            width: 100%;
+            height: 50%; /* Adjust the height to cover only the bottom half */
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            padding-top: 60px; /* Adjust according to navbar height */
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px; /* Adjust the height as needed */
+            background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
+            transition: background-color 0.3s ease; /* Smooth transition */
+            z-index: 9999; /* Ensure it's above other elements */
+            display: flex; /* Make the navbar horizontal */
+            justify-content: center; /* Center the navbar horizontally */
+            align-items: center; /* Center the navbar vertically */
+            padding-top: 10px; /* Add padding to the top */
+            padding-bottom: 10px; /* Add padding to the bottom */
+        }
+
+        .navbar-container:hover {
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background when hovered */
+        }
+
+        .navbar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Make the navbar horizontal */
+            z-index: 10000; /* Ensure it's above the hiding space */
+        }
+
+        .navbar li {
+            margin: 0 30px; /* Adjust the margin as needed */
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: rgb(251, 251, 251);
+            font-size: 16px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown li {
+            padding: 10px;
+        }
+
+        .dropdown li a {
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .video-sec-wrap {
+            width: 100%;
+            min-height: 100vh;
+            margin-top: 150px; /* Ajoutez la marge supérieure souhaitée */
+
+        }
+
+        .video-sec {
+            width: 85%;
+            margin: 3em auto;
+            border-bottom: 2px solid #353535;
+            text-align: left;
+        }
+
+        .video-sec-middle {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            justify-content: center;
+            align-content: center;
+            grid-template-rows: auto;
+            grid-row-gap: 15px;
+            grid-column-gap: 10px;
+            padding: 20px 0;
+        }
+
+        .thumb-wrap {
+            display: inline;
+            cursor: pointer;
+        }
+
+        .thumb {
+            display: block;
+            margin: .4em;
+            width: 100%;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+
+        .thumb:hover {
+            opacity: .8;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+        }
+
+        .thumb-info {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            padding: .4em;
+        }
+
+        .thumb-title {
+            color: #f5f5f5;
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .thumb-user {
+            color: #7e7e7e;
+            display: block;
+            margin: 0;
+            font-size: .9em;
+        }
+
+        .thumb-text {
+            color: #7e7e7e;
+            display: inline-block;
+            margin: 0;
+            font-size: .8em;
+        }
+
+        .video-sec-title {
+            font-weight: bolder;
+            font-size: 1.4em;
+            color: #f5f5f5;
+            margin: 5px 0 10px 10px;
+        }
+
+        .video-showmore {
+            font-weight: bold;
+            font-variant: all-petite-caps;
+            display: block;
+            color: #7e7e7e;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        @media only screen and (max-width: 1456px) {
+            .video-sec-middle {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .video-sec-middle {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 756px) {
+            .video-sec-middle {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 496px) {
+            .video-sec-middle {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .carousel-container {
+            margin-bottom: -100px; /* Adjust the margin as needed */
+
+        }
+        .text{
+            font-size: 25px;
+            color: white;
+            font-family: 'Lora', serif;
+            position: relative;
+            text-align: center;
+        }
+
+        .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative; /* Change to relative if needed */
+    bottom: 0; /* Ensure the footer sticks to the bottom */
+}
+
+.footer p {
+    margin-top: 10px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    font-size: 18px;
+}
+
+.footer-content a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #ffd700; /* Change to the desired hover color */
+}
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="background-container"></div>
+    <div class="second-background"></div>
+
+
+    <div class="navbar-container">
+        <ul class="navbar">
+            <li><a href="Index.html">Accueil</a></li>
+            <li><a href="testNAVBARETSLIDER.html">Exprimer</a></li>
+            <li><a href="PHOTO CREATION.HTML">Developer</a></li>
+            <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+    </div>
+
+
+    <div class="content-wrapper">
+        <!-- Your existing HTML content -->
+        <div class="container">
+            <div class="slide">
+                <div class="item" style="background-image: url(images/Xmen.png);">
+                    <div class="content">
+                        <div class="name">AFFICHE X-MEN</div>
+                        <div class="des"></div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(images/Blackopium.png);">
+                    <div class="content">
+                        <div class="name">EFFET REFLET</div>
+                        <div class="des"></div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(images/surrealiste.png);">
+                    <div class="content">
+                        <div class="name">COMPOSITION SURREALISTE</div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(images/madmax.png);">
+                    <div class="content">
+                        <div class="name">MAD MAX</div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(images/Effet\ Ferrotype-Djovaneka\ Derize\ \(1\)-1.png);">
+                    <div class="content">
+                        <div class="name">EFFET FERROTYPE</div>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(images/classicisme.jpg);">
+                    <div class="content">
+                        <div class="name">cLASSICISME CONTEMPORAIN</div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url(images/OPENBOOK\ KLEE\ NOR\ SUR\ BLANC.jpg);">
+                    <div class="content">
+                        <div class="name">KLEE, OPEN BOOK</div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url(images/Generate\ a\ McLaren\ S\ \(2\).jpg);">
+                    <div class="content">
+                        <div class="name">KLEE, OPEN BOOK</div>
+                    </div>
+                </div>
+
+               
+
+            </div>
+
+            <div class="button">
+                <button class="prev"><i class="fas fa-arrow-left"></i></button>
+                <button class="next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+    <article class="video-sec-wrap">
+        <div class="text" >
+            <p class="text">Projet Personnel</p>
+
+        </div>
+
+        <div class="video-sec">
+          <ul class="video-sec-middle" id="vid-grid">
+            <li class="thumb-wrap">
+                <img class="thumb" src="images/Projzt 1.jpg" alt="">
+                <div class="thumb-info">
+                  <p class="thumb-title"> Sliced Head-Photoshop</p>
+                </div>
+              </a>
+            </li>
+            <li class="thumb-wrap">
+                <img class="thumb" src="images/Projet 2.jpg" alt="" width="100px" height="250px">
+                <div class="thumb-info">
+                  <p class="thumb-title">Translucent Head- Photoshop</p>
+
+                </div>
+              </a>
+            </li>
+            <li class="thumb-wrap">
+                <img class="thumb" src="images/b78039c4-c54c-4905-aa0d-f749f8a06d1c.jpg" alt=""width="100px" height="250px">
+                <div class="thumb-info">
+                  <p class="thumb-title">Gardien de la galaxy poster-Leonardo X photoshop</p>
+      
+                </div>
+              </a>
+            </li>
+            <li class="thumb-wrap">
+                <img class="thumb" src="images/Generate a McLaren S (2).jpg" alt="">
+                <div class="thumb-info">
+                  <p class="thumb-title">Co-Branding senna Mclarren X Mondrian- Leonardo ai</p>
+   
+                </div>
+              </a>
+            </li>
+
+
+
+
+            <li class="thumb-wrap">
+                  <img class="thumb" src="images/Doctor-who.png" alt="">
+                  <div class="thumb-info">
+                    <p class="thumb-title">Doctor Who- Doctor Who</p>
+   
+                  </div>
+                </a>
+              </li>
+
+             
+            
+
+
+            <li class="thumb-wrap">
+                <img class="thumb" src="images/Default_Create_a_majestic_McLaren_Senna_inspired_by_baroque_ae_0.jpg" alt="">
+                <div class="thumb-info">
+                  <p class="thumb-title">Majestic Baroque X senna </p>
+
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </article>
+      
+
+
+
+
+
+
+
+
+
+      <footer class="footer">
+        <div class="footer-content">
+            <p>Contacte: ddjovaneka@gmail.com</p>
+        </div>
+    </footer>
+    
+   
+
+
+
+<script>
+
+
+
+ 
+
+        
+    let next = document.querySelector('.next');
+    let prev = document.querySelector('.prev');
+
+    next.addEventListener('click', function () {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').appendChild(items[0]);
+    });
+
+    prev.addEventListener('click', function () {
+        let items = document.querySelectorAll('.item');
+        document.querySelector('.slide').prepend(items[items.length - 1]);
+    });
+</script>
+
+</body>
+
+</html>
+
+
+
+</head>
+
+<body>
+</html>
+
+
+
+

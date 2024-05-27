@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+
+  <title>Simple navigation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+    body {
+      margin: 0;
+      font-family: Roboto, sans-serif; /* Changed font to Roboto */
+      background-color: rgb(33, 32, 32);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .navbar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px; /* Adjust the height as needed */
+      background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
+      transition: background-color 0.3s ease; /* Smooth transition */
+      z-index: 9999; /* Ensure it's above other elements */
+      display: flex; /* Make the navbar horizontal */
+      justify-content: center; /* Center the navbar horizontally */
+      align-items: center; /* Center the navbar vertically */
+      padding-top: 10px; /* Add padding to the top */
+      padding-bottom: 10px; /* Add padding to the bottom */
+    }
+
+    .navbar-container:hover {
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background when hovered */
+    }
+
+    .navbar {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Make the navbar horizontal */
+        z-index: 10000; /* Ensure it's above the hiding space */
+    }
+
+    .navbar li {
+        margin: 0 30px; /* Adjust the margin as needed */
+    }
+
+    .navbar li a {
+        text-decoration: none;
+        color: rgb(251, 251, 251);
+        font-size: 16px;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown li {
+        padding: 10px;
+    }
+
+    .dropdown li a {
+        color: black;
+        text-decoration: none;
+        display: block;
+    }
+
+    .navbar li:hover .dropdown {
+        display: block;
+    }
+
+    .wrapper {
+      height: 500px;
+      width: 460px;
+      background-color: white;
+      border-radius: 24px;
+      overflow: visible;
+      margin: 0 auto;
+      margin-top: 60px; /* Adjust margin-top to center the form */
+    }
+
+    .header {
+      width: 100%;
+      height: 32%;
+      background-color: #030303;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 34px 24px 12px;
+      font-weight: 300;
+      font-size: 60px;
+    }
+
+    p {
+      margin: 0;
+      padding: 0 24px;
+      font-size: 16px;
+      width: 360px;
+      opacity: 0.8;
+      margin: 0 auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 8px auto;
+      margin-bottom: 50px;
+      width: 76%;
+    }
+
+    h4 {
+      color: #666;
+      margin: 16px 0 6px;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    input,
+    textarea {
+      border: solid 1px #cbcbcb; 
+      border-radius: 6px;
+      width: 92%;
+      padding: 6px 12px;
+      outline: none;
+      margin: 4px auto;
+    }
+
+    input {
+      height: 28px;
+    }
+
+    textarea {
+      height: 62px;
+    }
+
+    button {
+      height: 42px;
+      width: 60%;
+      margin: 24px auto;
+      border-radius: 6px;
+      border: none;
+      color: white;
+      background: linear-gradient(to left bottom, #000046, #565c69);
+      cursor: pointer;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+    }
+
+    .footer p {
+      margin-top: 10px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    
+    .footer-content p {
+      font-size: 18px;
+    }
+
+    .footer-content a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-content a:hover {
+      color: #ffd700; /* Change to the desired hover color */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar-container">
+    <ul class="navbar">
+      <li><a href="Index.html">Accueil</a></li>
+      <li><a href="testNAVBARETSLIDER.html">Exprimer</a></li>
+      <li><a href="PHOTO CREATION.HTML">Developer</a></li>
+      <li><a href="contacte.html">Contacte</a></li>
+    </ul>
+  </div>
+
+  <div class="wrapper">
+    <div class="header">
+      <h1>Contacte</h1>
+    </div>
+    <form>
+      <h4>Name</h4>
+      <input type="texte" placeholder="Votre Nom" required>
+      <h4>Email</h4>
+      <input type="email" placeholder="Adresse mail" required>
+      <h4>Message</h4>
+      <textarea placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+
+ <br>
+ <br>
+ <br>
+ <br><br>
+ <br>
+
+ <footer class="footer">
+  <div class="footer-content">
+      <p>Contacte: ddjovaneka@gmail.com</p>
+  </div>
+</footer>
+
+
+ 
+
+  
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expr</title>
+    <link rel="stylesheet" href="PHOTO_SCREATION.css">
+    <style>
+        body {
+            margin: 0; /* Added to remove default margin */
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            background-color: #121212;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            padding-top: 50px;
+            margin-top: 0; /* Added to remove default margin */
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0);
+            transition: background-color 0.3s ease;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .navbar-container:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .navbar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            z-index: 10000;
+        }
+
+        .navbar li {
+            margin: 0 70px; /* Adjusted margin */
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            color: rgb(248, 248, 248);
+            font-size: 16px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown li {
+            padding: 10px;
+        }
+
+        .dropdown li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .video-sec-wrap {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .video-sec {
+            width: 85%;
+            margin: 3em auto 0; /* Adjusted margin */
+            border-bottom: 2px solid #353535;
+            text-align: left;
+        }
+
+        .video-sec-middle {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            grid-gap: 15px;
+            padding: 20px 0;
+        }
+
+        .thumb-wrap {
+            display: inline;
+            cursor: pointer;
+        }
+
+        .thumb {
+            display: block;
+            margin: .4em;
+            width: 100%;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            opacity: 1;
+            transition: all .2s ease-in-out;
+        }
+
+        .thumb:hover {
+            opacity: .8;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+        }
+
+        .thumb-info {
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            padding: .4em;
+        }
+
+        .thumb-title {
+            color: #f5f5f5;
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .thumb-user {
+            color: #7e7e7e;
+            display: block;
+            margin: 0;
+            font-size: .9em;
+        }
+
+        .thumb-text {
+            color: #7e7e7e;
+            display: inline-block;
+            margin: 0;
+            font-size: .8em;
+        }
+
+        .video-sec-title {
+            font-weight: bolder;
+            font-size: 1.4em;
+            color: #f5f5f5;
+            margin: 5px 0 10px 10px;
+        }
+
+        .video-showmore {
+            font-weight: bold;
+            font-variant: all-petite-caps;
+            display: block;
+            color: #7e7e7e;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        @media only screen and (max-width: 756px) {
+            .video-sec-middle {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; /* Added to align the footer to the bottom */
+            position: relative; /* Changed to fixed to keep it at the bottom */
+            bottom: -100; /* Added to align the footer to the bottom */
+            left: 0; /* Added to align the footer to the bottom */
+        }
+
+        .footer p {
+            margin-top: 10px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content p {
+            font-size
+            : 18px;
+        }
+
+        .footer-content a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <ul class="navbar">
+            <li><a href="Index.html">Accueil</a></li>
+            <li><a href="testNAVBARETSLIDER.html">Exprimer</a></li>
+            <li><a href="PHOTO CREATION.HTML">Developer</a></li>
+            <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+    </div>
+
+    <h1>      </h1>
+    <h1 style="text-align: center;">Sites crées</h1>
+
+    <article class="video-sec-wrap">
+        <div class="video-sec">
+            <ul class="video-sec-middle" id="vid-grid">
+                <li class="thumb-wrap"><a href="">
+                    <img class="thumb" src="images/spaceport.png" alt="">
+                    <div class="thumb-info">
+                        <p class="thumb-title">site conçu dans le cadre d'un SAE</p>
+                    </div>
+                </a></li>
+                <li class="thumb-wrap"><a href="https://codespatiale.000webhostapp.com/">
+                    <img class="thumb" src="images/codespace.PNG" alt="">
+                    <div class="thumb-info">
+                        <p class="thumb-title">Code-space- site conçu en groupe</p>
+                    </div>
+                </a></li>
+                <li class="thumb-wrap" style="grid-column: span 2;">
+                    <a href="https://lighthearted-buttercream-97ad03.netlify.app/">
+                    <img class="thumb" src="images/carslife.png" alt="" width="300px" height="600px">
+                    <div class="thumb-info">
+                        <p class="thumb-title">conçu Pour mes voitures préférées</p>
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="footer-content">
+          <p>Contacte: ddjovaneka@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
